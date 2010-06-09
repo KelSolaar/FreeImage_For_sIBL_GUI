@@ -1,9 +1,10 @@
 // ==========================================================
-// Tone mapping operator (Drago, 2003)
+// HDRLabs Functions.
 //
 // Design and implementation by
 // - Hervé Drolon (drolon@infonie.fr)
 // - Thomas Mansencal (kelsolaar_fool@hotmail.com)
+//
 // This file is part of FreeImage 3
 //
 // COVERED CODE IS PROVIDED UNDER THIS LICENSE ON AN "AS IS" BASIS, WITHOUT WARRANTY
@@ -24,34 +25,28 @@
 #include "ToneMapping.h"
 
 /**
-Converts HDR To LDR.
-@param src Input RGB16 or RGB[A]F image
-@param gamma Gamma correction (gamma > 0). 1 means no correction, 2.2 in the original paper.
-@param exposure Exposure parameter (0 means no correction, 0 in the original paper)
-@return Returns a 24-bit RGB image if successful, returns NULL otherwise
+Converts An HDRI To LDRI One.
+@param src Input RGB16 or RGB[A]F image.
+@param gamma Gamma correction.
+@return Returns a 24-bit RGB image if successful, returns NULL otherwise.
 */
 FIBITMAP* DLL_CALLCONV 
-FreeImage_HDRLabs_ConvertToLdr(FIBITMAP *src, double gamma, double exposure) {
+FreeImage_HDRLabs_ConvertToLdr(FIBITMAP *src, double gamma) {
 	if(!src) return NULL;
 
-	// working RGBF variable
 	FIBITMAP *dib = NULL;
 
 	dib = FreeImage_ConvertToRGBF(src);
 	if(!dib) return NULL;
 
-	/*if(gamma != 1) {
-		// perform gamma correction
+	if(gamma != 1) {
 		REC709GammaCorrection(dib, (float)gamma);
-	}*/
-
-	// clamp image highest values to display white, then convert to 24-bit RGB
+	}
+	
 	FIBITMAP *dst = ClampConvertRGBFTo24(dib);
 
-	// clean-up and return
 	FreeImage_Unload(dib);
 
-	// copy metadata from src to dst
 	FreeImage_CloneMetadata(dst, src);
 	
 	return dst;

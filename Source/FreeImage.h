@@ -1079,7 +1079,7 @@ DLL_API FIBITMAP *DLL_CALLCONV FreeImage_AllocateExT(FREE_IMAGE_TYPE type, int w
 DLL_API FIBITMAP *DLL_CALLCONV FreeImage_MultigridPoissonSolver(FIBITMAP *Laplacian, int ncycle FI_DEFAULT(3));
 
 // HDRLabs routines
-DLL_API FIBITMAP *DLL_CALLCONV FreeImage_HDRLabs_ConvertToLdr(FIBITMAP *src, double gamma FI_DEFAULT(2.2), double exposure FI_DEFAULT(0));
+DLL_API FIBITMAP *DLL_CALLCONV FreeImage_HDRLabs_ConvertToLdr(FIBITMAP *src, double gamma FI_DEFAULT(2.2));
 
 // restore the borland-specific enum size option
 #if defined(__BORLANDC__)
