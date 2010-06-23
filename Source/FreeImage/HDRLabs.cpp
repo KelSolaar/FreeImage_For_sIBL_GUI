@@ -2,7 +2,7 @@
 // HDRLabs Functions.
 //
 // Design and implementation by
-// - Hervé Drolon (drolon@infonie.fr)
+// - HervÃ© Drolon (drolon@infonie.fr)
 // - Thomas Mansencal (kelsolaar_fool@hotmail.com)
 //
 // This file is part of FreeImage 3
@@ -20,12 +20,14 @@
 // Use at your own risk!
 // ==========================================================
 
+#include <string.h>
+
 #include "FreeImage.h"
 #include "Utilities.h"
 #include "ToneMapping.h"
 
 /**
-Converts An HDRI To LDRI One.
+Converts An HDRI Bitmap To A LDRI One.
 @param src Input RGB16 or RGB[A]F image.
 @param gamma Gamma correction.
 @return Returns a 24-bit RGB image if successful, returns NULL otherwise.
