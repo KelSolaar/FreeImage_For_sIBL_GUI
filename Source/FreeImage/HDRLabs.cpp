@@ -48,8 +48,10 @@ FreeImage_HDRLabs_ConvertToLdr(FIBITMAP *src, double gamma) {
 	FIBITMAP *dst = ClampConvertRGBFTo24(dib);
 
 	FreeImage_Unload(dib);
-
+	
 	FreeImage_CloneMetadata(dst, src);
+
+	FreeImage_Unload(src);
 	
 	return dst;
 }
