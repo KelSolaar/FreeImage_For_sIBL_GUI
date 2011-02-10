@@ -3,7 +3,7 @@
 //
 // Design and implementation by
 // - Hervé Drolon (drolon@infonie.fr)
-// - Thomas Mansencal (kelsolaar_fool@hotmail.com)
+// - Thomas Mansencal (thomas.mansencal@gmail.com)
 //
 // This file is part of FreeImage 3
 //
