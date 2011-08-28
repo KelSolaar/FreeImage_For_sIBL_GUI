@@ -40,7 +40,7 @@ FIBITMAP* ClampConvertRGBFTo24(FIBITMAP *src);
 BOOL ConvertInPlaceYxyToRGBF(FIBITMAP *dib);
 
 BOOL REC709GammaCorrection(FIBITMAP *dib, const float gammaval);
-	
+
 #ifdef __cplusplus
 }
 #endif
